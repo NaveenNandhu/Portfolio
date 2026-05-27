@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(to right, #ffffff, #888888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-gradient-red {
+    background: linear-gradient(135deg, #ff0000, #ff4d4d, #8b0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass {
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+  }
+}
+
+html, body {
+  background-color: #030303;
+  color: #fff;
+  cursor: default;
+}
+
+/* Dynamic Noise Grain */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Mouse Reactive Glow Effect on Silhouette */
+.silhouette-glow-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.silhouette-glow-layer {
+  position: absolute;
+  inset: -10px;
+  filter: drop-shadow(0 0 30px rgba(255, 0, 0, var(--glow-intensity, 0))) 
+          drop-shadow(0 0 60px rgba(220, 38, 38, calc(var(--glow-intensity, 0) * 0.5)));
+  transition: filter 0.1s ease-out;
+  pointer-events: none;
+  z-index: -1;
+  /* Red tint matrix */
+  -webkit-filter: drop-shadow(0 0 30px rgba(255, 0, 0, var(--glow-intensity, 0))) sepia(100%) hue-rotate(-50deg) saturate(600%) brightness(1.5);
+}
+
+.glow-image {
+  position: relative;
+  z-index: 10;
+}
+
+/* Chrome Autofill Transparent Override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+    transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
+    -webkit-text-fill-color: white !important;
+}
