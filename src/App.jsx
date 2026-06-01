@@ -22,7 +22,7 @@ export default function App() {
   const glowIntensity = isHovered ? 0.3 : 0; // Light glow when hovered
 
   const skillCategories = ['Web Development', 'Design & UI/UX', 'Tools & Version Control'];
-  
+
   const skillsData = {
     'Web Development': [
       { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
@@ -52,7 +52,7 @@ export default function App() {
 
   // Generate flying particles originating from center
   const particles = useMemo(() => {
-    return [...Array(100)].map(() => {
+    return [...Array(40)].map(() => {
       const angle = Math.random() * Math.PI * 2;
       const distance = Math.random() * 800 + 200;
       return {
@@ -68,7 +68,7 @@ export default function App() {
 
   // Generate random twinkling stars for the background
   const stars = useMemo(() => {
-    return [...Array(80)].map(() => ({
+    return [...Array(40)].map(() => ({
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
       size: Math.random() * 1.5 + 0.5, // 0.5px to 2px
@@ -149,7 +149,7 @@ export default function App() {
           {stars.map((star, i) => (
             <motion.div
               key={`star-${i}`}
-              className="absolute bg-white rounded-full blur-[0.5px]"
+              className="absolute bg-white rounded-full opacity-60"
               style={{
                 top: star.top,
                 left: star.left,
@@ -175,22 +175,22 @@ export default function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="absolute top-[18%] md:top-[25%] left-1/2 -translate-x-1/2 flex flex-col items-center justify-center text-center z-[60] w-full pointer-events-none"
+          className="flex flex-col items-center justify-center text-center z-10 mb-2 md:mb-8 relative flex-1 w-full"
         >
-          <h1 className="font-heading font-black text-5xl md:text-6xl lg:text-[5.5rem] leading-[1] mb-2 tracking-tight -translate-y-[4px] pointer-events-auto">
+          <h1 className="font-heading font-black text-5xl md:text-6xl lg:text-[5.5rem] leading-[1] mb-2 tracking-tight -translate-y-[4px]">
             I'm <span className="text-red-600 drop-shadow-[0_0_30px_rgba(220,38,38,0.4)]">Nandhakumar,</span>
           </h1>
           <h2 className="font-heading font-bold text-2xl md:text-5xl lg:text-6xl leading-[1.1] text-gray-300 tracking-tight">
-            Creative Full Stack Developer
+            Full Stack Developer
           </h2>
-          
+
           {/* MOBILE ONLY: About Me & Button (Hidden on Desktop) */}
           <div className="flex xl:hidden flex-col items-center mt-6 max-w-[95%] md:max-w-[600px] pointer-events-auto relative z-50">
-             <p className="text-[11px] md:text-sm text-gray-300 mb-6 leading-relaxed font-medium bg-black/40 backdrop-blur-sm px-4 md:px-8 py-2 md:py-4 rounded-xl border border-white/5 shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
-               Enthusiastic IT student building creative, web-based projects that solve real-world problems.
-             </p>
-             <a 
-              href="/resume.pdf" 
+            <p className="text-[11px] md:text-sm text-gray-300 mb-6 leading-relaxed font-medium bg-black/40 backdrop-blur-sm px-4 md:px-8 py-2 md:py-4 rounded-xl border border-white/5 shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
+              Enthusiastic IT student building creative, web-based projects that solve real-world problems.
+            </p>
+            <a
+              href="/resume.pdf"
               download="NaveenNandhu_Resume.pdf"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-red-600 text-white text-[9px] font-bold tracking-[0.2em] uppercase rounded-full shadow-[0_0_15px_rgba(220,38,38,0.3)] border border-red-500/50"
             >
@@ -219,7 +219,7 @@ export default function App() {
             {particles.map((p, i) => (
               <motion.div
                 key={i}
-                className={`absolute rounded-full blur-[1px] ${p.color}`}
+                className={`absolute rounded-full opacity-80 ${p.color}`}
                 style={{ width: p.size, height: p.size, marginLeft: -p.size / 2, marginTop: -p.size / 2 }}
                 initial={{ x: 0, y: 0, opacity: 0, scale: 0 }}
                 animate={{
@@ -240,10 +240,10 @@ export default function App() {
 
           {/* Subtle Atmospheric Smoke */}
           <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[120%] h-[300px] pointer-events-none -z-10 opacity-60 mix-blend-screen">
-            {[...Array(3)].map((_, i) => (
+            {[...Array(1)].map((_, i) => (
               <motion.div
                 key={`smoke-${i}`}
-                className={`absolute w-[400px] h-[200px] rounded-[100%] blur-[60px] transition-colors duration-1000 ${isHovered ? 'bg-red-600/20' : 'bg-white/10'}`}
+                className={`absolute w-[400px] h-[200px] rounded-[100%] blur-[40px] transition-colors duration-1000 ${isHovered ? 'bg-red-600/20' : 'bg-white/10'}`}
                 style={{
                   left: `${5 + i * 25}%`,
                   bottom: `${-10 + i * 10}%`
@@ -272,8 +272,8 @@ export default function App() {
             <p className="text-base text-gray-400 leading-loose font-medium mb-6 -mt-6">
               Enthusiastic IT student building creative, web-based projects that solve real-world problems. Driven by continuous learning and a passion for developing technology that positively impacts everyday lives.
             </p>
-            <a 
-              href="/resume.pdf" 
+            <a
+              href="/resume.pdf"
               download="NaveenNandhu_Resume.pdf"
               className="inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-red-600 text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-red-500 shadow-[0_0_20px_rgba(220,38,38,0.3)] hover:shadow-[0_0_30px_rgba(220,38,38,0.6)] transition-all w-fit group border border-red-500/50"
             >
@@ -397,40 +397,18 @@ export default function App() {
 
       {/* 4. SERVICES SECTION */}
       <section id="services" className="relative px-6 md:px-16 min-h-[100vh] md:h-[100vh] h-auto flex flex-col justify-center py-12 md:py-24 z-10 overflow-hidden">
-        
+
         {/* Effective Background Fade */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505] to-[#050505] -z-10"></div>
-        
+
         {/* Fading Horizontal Divider Line */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-        
-        {/* Cinematic Ambient Orbs specifically for Services */}
-        <div className="absolute top-0 left-[-10%] w-96 h-96 bg-red-600/10 rounded-full blur-[120px] animate-pulse pointer-events-none z-0"></div>
-        <div className="absolute bottom-10 right-[-5%] w-80 h-80 bg-white/5 rounded-full blur-[100px] animate-pulse pointer-events-none z-0" style={{ animationDelay: '2s' }}></div>
 
-        {/* Light Particle Effects */}
-        <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
-          {particles.slice(0, 60).map((p, i) => (
-            <motion.div
-              key={`srv-particle-${i}`}
-              className={`absolute rounded-full blur-[1px] ${p.color}`}
-              style={{ width: p.size, height: p.size, marginLeft: -p.size / 2, marginTop: -p.size / 2 }}
-              initial={{ x: 0, y: 0, opacity: 0, scale: 0 }}
-              animate={{
-                x: [0, p.x * 1.2],
-                y: [0, p.y * 1.2],
-                opacity: [0, 0.5, 0],
-                scale: [0, 1, 0.5]
-              }}
-              transition={{
-                duration: p.duration * 1.2,
-                repeat: Infinity,
-                ease: "easeOut",
-                delay: p.delay
-              }}
-            />
-          ))}
-        </div>
+        {/* Cinematic Ambient Orbs specifically for Services */}
+        <div className="absolute top-0 left-[-10%] w-96 h-96 bg-red-600/10 rounded-full blur-[80px] pointer-events-none z-0"></div>
+        <div className="absolute bottom-10 right-[-5%] w-80 h-80 bg-white/5 rounded-full blur-[60px] pointer-events-none z-0"></div>
+
+
 
         <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
           <span className="text-[10px] font-bold tracking-[0.3em] text-red-500 uppercase mb-4">My Services</span>
@@ -456,15 +434,15 @@ export default function App() {
               >
                 {/* Glowing border mask */}
                 <div className="absolute inset-0 bg-white/5 group-hover:bg-red-600 transition-colors duration-500"></div>
-                
+
                 {/* Inner Card Content */}
                 <div className="relative h-full bg-black p-6 md:p-8 rounded-[2rem] flex flex-col items-start transition-all duration-500 overflow-hidden">
-                  
+
                   {/* Abstract Vector Animation Background */}
                   <div className="absolute -right-12 -bottom-12 w-56 h-56 opacity-[0.03] group-hover:opacity-20 transition-all duration-700 pointer-events-none group-hover:scale-125 z-0">
-                    <motion.svg 
-                      viewBox="0 0 100 100" 
-                      animate={{ rotate: 360 }} 
+                    <motion.svg
+                      viewBox="0 0 100 100"
+                      animate={{ rotate: 360 }}
                       transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                       className="w-full h-full text-white group-hover:text-red-500 transition-colors duration-700"
                     >
@@ -474,11 +452,11 @@ export default function App() {
                       <polygon points="50,85 15,25 85,25" fill="none" stroke="currentColor" strokeWidth="0.5" />
                     </motion.svg>
                   </div>
-                  
+
                   <div className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center mb-6 bg-white/5 text-gray-400 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-[0_0_40px_rgba(220,38,38,0.8)] transition-all duration-500 group-hover:-translate-y-2">
                     <service.icon className="w-5 h-5" />
                   </div>
-                  
+
                   <h3 className="relative z-10 font-heading font-bold text-xl mb-3 text-white group-hover:text-red-500 transition-colors duration-300">{service.title}</h3>
                   <p className="relative z-10 text-gray-400 text-sm leading-relaxed mb-2 font-light group-hover:text-gray-300 transition-colors duration-300">{service.desc}</p>
                 </div>
@@ -489,40 +467,18 @@ export default function App() {
       </section>
       {/* 5. SKILLS SECTION */}
       <section id="skills" className="relative px-0 min-h-[100vh] md:h-[100vh] h-auto flex flex-col justify-center py-12 md:py-24 z-10 overflow-hidden">
-        
+
         {/* Effective Background Fade */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505] to-[#050505] -z-10"></div>
-        
+
         {/* Fading Horizontal Divider Line */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent z-10"></div>
-        
-        {/* Cinematic Ambient Orbs */}
-        <div className="absolute top-0 left-[-10%] w-96 h-96 bg-red-600/10 rounded-full blur-[120px] animate-pulse pointer-events-none z-0"></div>
-        <div className="absolute bottom-10 right-[-5%] w-80 h-80 bg-white/5 rounded-full blur-[100px] animate-pulse pointer-events-none z-0" style={{ animationDelay: '2s' }}></div>
 
-        {/* Light Particle Effects */}
-        <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
-          {particles.slice(0, 60).map((p, i) => (
-            <motion.div
-              key={`skill-particle-${i}`}
-              className={`absolute rounded-full blur-[1px] ${p.color}`}
-              style={{ width: p.size, height: p.size, marginLeft: -p.size / 2, marginTop: -p.size / 2 }}
-              initial={{ x: 0, y: 0, opacity: 0, scale: 0 }}
-              animate={{
-                x: [0, p.x * 1.2],
-                y: [0, p.y * 1.2],
-                opacity: [0, 0.5, 0],
-                scale: [0, 1, 0.5]
-              }}
-              transition={{
-                duration: p.duration * 1.2,
-                repeat: Infinity,
-                ease: "easeOut",
-                delay: p.delay
-              }}
-            />
-          ))}
-        </div>
+        {/* Cinematic Ambient Orbs */}
+        <div className="absolute top-0 left-[-10%] w-96 h-96 bg-red-600/10 rounded-full blur-[80px] pointer-events-none z-0"></div>
+        <div className="absolute bottom-10 right-[-5%] w-80 h-80 bg-white/5 rounded-full blur-[60px] pointer-events-none z-0"></div>
+
+
 
         <div className="max-w-7xl mx-auto w-full flex flex-col items-center z-10 mb-20 px-6 md:px-16">
           <span className="text-[10px] font-bold tracking-[0.3em] text-red-500 uppercase mb-4">Capabilities</span>
@@ -541,45 +497,45 @@ export default function App() {
 
           {/* Row 1: Scroll Left */}
           <div className="flex w-max relative group">
-             <motion.div 
-               animate={{ x: ["0%", "-50%"] }} 
-               transition={{ duration: 30, ease: "linear", repeat: Infinity }}
-               className="flex gap-6 md:gap-8 px-3 md:px-4 group-hover:[animation-play-state:paused]"
-             >
-                {/* Duplicate the array twice to ensure seamless scrolling of -50% */}
-                {[...Array(2)].map((_, index) => (
-                  <React.Fragment key={index}>
-                    {row1Skills.map(skill => (
-                      <div key={`${index}-${skill.name}`} className="flex items-center gap-4 bg-[#0a0a0a] border border-white/5 rounded-full px-8 py-5 hover:bg-white/10 hover:border-red-500/50 transition-all duration-300 cursor-crosshair group/pill shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover/pill:translate-x-[200%] transition-transform duration-1000"></div>
-                        <skill.icon className="w-8 h-8 opacity-70 group-hover/pill:opacity-100 group-hover/pill:scale-110 transition-all duration-500 relative z-10" style={{ color: skill.color }} />
-                        <span className="font-heading font-bold text-sm tracking-widest text-gray-500 group-hover/pill:text-white uppercase transition-colors relative z-10">{skill.name}</span>
-                      </div>
-                    ))}
-                  </React.Fragment>
-                ))}
-             </motion.div>
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+              className="flex gap-6 md:gap-8 px-3 md:px-4 group-hover:[animation-play-state:paused]"
+            >
+              {/* Duplicate the array twice to ensure seamless scrolling of -50% */}
+              {[...Array(2)].map((_, index) => (
+                <React.Fragment key={index}>
+                  {row1Skills.map(skill => (
+                    <div key={`${index}-${skill.name}`} className="flex items-center gap-4 bg-[#0a0a0a] border border-white/5 rounded-full px-8 py-5 hover:bg-white/10 hover:border-red-500/50 transition-all duration-300 cursor-crosshair group/pill shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover/pill:translate-x-[200%] transition-transform duration-1000"></div>
+                      <skill.icon className="w-8 h-8 opacity-70 group-hover/pill:opacity-100 group-hover/pill:scale-110 transition-all duration-500 relative z-10" style={{ color: skill.color }} />
+                      <span className="font-heading font-bold text-sm tracking-widest text-gray-500 group-hover/pill:text-white uppercase transition-colors relative z-10">{skill.name}</span>
+                    </div>
+                  ))}
+                </React.Fragment>
+              ))}
+            </motion.div>
           </div>
 
           {/* Row 2: Scroll Left (Offset speed) */}
           <div className="flex w-max relative group">
-             <motion.div 
-               animate={{ x: ["0%", "-50%"] }} 
-               transition={{ duration: 35, ease: "linear", repeat: Infinity }}
-               className="flex gap-6 md:gap-8 px-3 md:px-4 group-hover:[animation-play-state:paused]"
-             >
-                {[...Array(2)].map((_, index) => (
-                  <React.Fragment key={index}>
-                    {row2Skills.map(skill => (
-                      <div key={`${index}-${skill.name}`} className="flex items-center gap-4 bg-[#0a0a0a] border border-white/5 rounded-full px-8 py-5 hover:bg-white/10 hover:border-red-500/50 transition-all duration-300 cursor-crosshair group/pill shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover/pill:translate-x-[200%] transition-transform duration-1000"></div>
-                        <skill.icon className="w-8 h-8 opacity-70 group-hover/pill:opacity-100 group-hover/pill:scale-110 transition-all duration-500 relative z-10" style={{ color: skill.color }} />
-                        <span className="font-heading font-bold text-sm tracking-widest text-gray-500 group-hover/pill:text-white uppercase transition-colors relative z-10">{skill.name}</span>
-                      </div>
-                    ))}
-                  </React.Fragment>
-                ))}
-             </motion.div>
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ duration: 35, ease: "linear", repeat: Infinity }}
+              className="flex gap-6 md:gap-8 px-3 md:px-4 group-hover:[animation-play-state:paused]"
+            >
+              {[...Array(2)].map((_, index) => (
+                <React.Fragment key={index}>
+                  {row2Skills.map(skill => (
+                    <div key={`${index}-${skill.name}`} className="flex items-center gap-4 bg-[#0a0a0a] border border-white/5 rounded-full px-8 py-5 hover:bg-white/10 hover:border-red-500/50 transition-all duration-300 cursor-crosshair group/pill shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover/pill:translate-x-[200%] transition-transform duration-1000"></div>
+                      <skill.icon className="w-8 h-8 opacity-70 group-hover/pill:opacity-100 group-hover/pill:scale-110 transition-all duration-500 relative z-10" style={{ color: skill.color }} />
+                      <span className="font-heading font-bold text-sm tracking-widest text-gray-500 group-hover/pill:text-white uppercase transition-colors relative z-10">{skill.name}</span>
+                    </div>
+                  ))}
+                </React.Fragment>
+              ))}
+            </motion.div>
           </div>
 
         </div>
@@ -587,40 +543,18 @@ export default function App() {
 
       {/* 6. EDUCATION SECTION */}
       <section id="education" className="relative px-4 md:px-8 min-h-screen flex flex-col justify-center py-12 md:py-24 z-10 overflow-hidden">
-        
+
         {/* Effective Background Fade */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505] to-[#050505] -z-10"></div>
-        
+
         {/* Fading Horizontal Divider Line */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent z-10"></div>
-        
-        {/* Cinematic Ambient Orbs */}
-        <div className="absolute top-0 left-[-10%] w-96 h-96 bg-red-600/10 rounded-full blur-[120px] animate-pulse pointer-events-none z-0"></div>
-        <div className="absolute bottom-10 right-[-5%] w-80 h-80 bg-white/5 rounded-full blur-[100px] animate-pulse pointer-events-none z-0" style={{ animationDelay: '2s' }}></div>
 
-        {/* Light Particle Effects */}
-        <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
-          {particles.slice(0, 60).map((p, i) => (
-            <motion.div
-              key={`edu-particle-${i}`}
-              className={`absolute rounded-full blur-[1px] ${p.color}`}
-              style={{ width: p.size, height: p.size, marginLeft: -p.size / 2, marginTop: -p.size / 2 }}
-              initial={{ x: 0, y: 0, opacity: 0, scale: 0 }}
-              animate={{
-                x: [0, p.x * 1.2],
-                y: [0, p.y * 1.2],
-                opacity: [0, 0.5, 0],
-                scale: [0, 1, 0.5]
-              }}
-              transition={{
-                duration: p.duration * 1.2,
-                repeat: Infinity,
-                ease: "easeOut",
-                delay: p.delay
-              }}
-            />
-          ))}
-        </div>
+        {/* Cinematic Ambient Orbs */}
+        <div className="absolute top-0 left-[-10%] w-96 h-96 bg-red-600/10 rounded-full blur-[80px] pointer-events-none z-0"></div>
+        <div className="absolute bottom-10 right-[-5%] w-80 h-80 bg-white/5 rounded-full blur-[60px] pointer-events-none z-0"></div>
+
+
 
         <div className="max-w-6xl mx-auto flex flex-col items-center relative z-10 mt-8 md:mt-10">
           <span className="text-[10px] font-bold tracking-[0.3em] text-red-500 uppercase mb-4">Background</span>
@@ -630,26 +564,26 @@ export default function App() {
 
           <div className="w-full flex flex-col gap-10 md:gap-14 relative before:absolute before:left-[19px] md:before:left-1/2 md:before:-translate-x-1/2 before:top-0 before:h-full before:w-[1px] before:bg-white/10">
             {[
-              { 
-                year: '2023 — 2026', 
+              {
+                year: '2023 — 2026',
                 degree: (
                   <>
                     Bachelor of Science in <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-800">Information Technology</span>
                   </>
-                ), 
-                institution: 'Gobi Arts & Science College', 
+                ),
+                institution: 'Gobi Arts & Science College',
                 performance: '80%',
                 focus: 'Full-Stack Web Development, UI/UX Design, and Software Engineering.',
                 side: 'left'
               },
-              { 
-                year: '2022 — 2023', 
+              {
+                year: '2022 — 2023',
                 degree: (
                   <>
                     Higher Secondary Certificate <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-800">(HSC)</span>
                   </>
-                ), 
-                institution: 'Kamban Kalvi Nilaiyam', 
+                ),
+                institution: 'Kamban Kalvi Nilaiyam',
                 performance: '82.5%',
                 focus: 'Computer Maths group including Physics, Chemistry, and Computer Science.',
                 side: 'right'
@@ -669,9 +603,9 @@ export default function App() {
                 >
                   <div className={`p-6 md:p-8 rounded-2xl bg-[#0a0a0a] border-2 border-white/20 flex flex-col text-left items-start w-full`}>
                     <span className="text-xs font-bold text-red-500 tracking-widest uppercase block mb-2">{edu.year}</span>
-                    <h3 className="font-heading font-bold text-base md:text-lg lg:text-xl text-white mb-1 leading-snug whitespace-nowrap tracking-tight">{edu.degree}</h3>
+                    <h3 className="font-heading font-bold text-base md:text-lg lg:text-xl text-white mb-1 leading-snug md:whitespace-nowrap tracking-tight">{edu.degree}</h3>
                     <span className="text-sm text-gray-400 font-medium block mb-4">{edu.institution}</span>
-                    
+
                     <div className="flex flex-col gap-2 items-start">
                       <span className="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] uppercase tracking-widest text-gray-300">
                         Performance: <strong className="text-white">{edu.performance}</strong>
