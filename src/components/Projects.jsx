@@ -48,7 +48,7 @@ const projects = [
     id: 2,
     title: "FoodShare (FoodRescueConnect)",
     subtitle: "Food Donation & Distribution Platform",
-    image: null,
+    image: "/foodshare_dashboard.png",
     shortDesc: "A web application developed to reduce food waste by efficiently connecting surplus food donors with charitable organizations.",
     tags: ["Completed", "Full-Stack Web"],
     tech: [
