@@ -175,9 +175,9 @@ export default function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center justify-center text-center z-40 mb-2 md:mb-8 relative flex-1 w-full"
+          className="absolute top-[18%] md:top-[25%] left-1/2 -translate-x-1/2 flex flex-col items-center justify-center text-center z-[60] w-full pointer-events-none"
         >
-          <h1 className="font-heading font-black text-5xl md:text-6xl lg:text-[5.5rem] leading-[1] mb-2 tracking-tight -translate-y-[4px]">
+          <h1 className="font-heading font-black text-5xl md:text-6xl lg:text-[5.5rem] leading-[1] mb-2 tracking-tight -translate-y-[4px] pointer-events-auto">
             I'm <span className="text-red-600 drop-shadow-[0_0_30px_rgba(220,38,38,0.4)]">Nandhakumar,</span>
           </h1>
           <h2 className="font-heading font-bold text-2xl md:text-5xl lg:text-6xl leading-[1.1] text-gray-300 tracking-tight">
