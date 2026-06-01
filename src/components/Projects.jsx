@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX, FiExternalLink, FiGithub, FiArrowRight, FiUsers, FiCamera, FiActivity, FiDatabase, FiServer, FiLayers, FiCode, FiLayout, FiMaximize2, FiPlay, FiChevronRight } from 'react-icons/fi';
-import { SiCplusplus, SiArduino, SiPython, SiTensorflow, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiTailwindcss, SiMysql, SiPhp, SiBootstrap, SiJavascript, SiFigma } from 'react-icons/si';
+import { SiCplusplus, SiArduino, SiPython, SiTensorflow, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiTailwindcss, SiMysql, SiPhp, SiBootstrap, SiJavascript, SiFigma, SiHtml5 } from 'react-icons/si';
+import { FaCss3Alt } from 'react-icons/fa';
 
 const projects = [
   {
@@ -45,6 +46,46 @@ const projects = [
   },
   {
     id: 2,
+    title: "FoodShare (FoodRescueConnect)",
+    subtitle: "Food Donation & Distribution Platform",
+    image: null,
+    shortDesc: "A web application developed to reduce food waste by efficiently connecting surplus food donors with charitable organizations.",
+    tags: ["Completed", "Full-Stack Web"],
+    tech: [
+      { name: "PHP", icon: SiPhp, color: "#777BB4" },
+      { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+      { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" }
+    ],
+    stats: [
+      { label: "User Roles", value: "3", icon: FiUsers },
+      { label: "Platform", value: "Web", icon: FiLayout },
+      { label: "Database", value: "MySQL", icon: FiDatabase }
+    ],
+    links: {
+      live: "https://food-donation-amber.vercel.app/",
+      github: "https://github.com/NaveenNandhu/food_donation.git"
+    },
+    details: {
+      description: "FoodShare acts as a bridge between food donors (like restaurants and grocery stores) and charitable organizations. The goal is to ensure usable surplus food reaches those in need rather than going to waste. I developed the entire application, including the UI, authentication, request workflows, and backend logic.",
+      features: [
+        "Role-based dashboards for Donors, Charities, and Administrators.",
+        "Donors can easily list surplus food with quantity and pickup location.",
+        "Verified charities can browse nearby donations and request pickups.",
+        "Charity verification module controlled by the Admin to prevent misuse.",
+        "Fully responsive design working seamlessly on mobile and desktop."
+      ],
+      workflow: "1. Donors (e.g., restaurants) list available surplus food.\n2. The system makes the listing visible only to admin-verified charities.\n3. A charity requests the food; the donor reviews and accepts.\n4. Charity collects the food, and the system logs the completed donation.",
+      architecture: "Monolithic MVC web application. Frontend designed with HTML/CSS/JS for responsive views, backed by a PHP server handling business logic and routing.",
+      database: "Relational MySQL database managing Users, Roles, Donations, Requests, and Charity Verification statuses.",
+      api: "PHP form handling and session management for secure authentication and data submission.",
+      challenges: "Designing an intuitive multi-role system where donors and charities interact securely without direct contact until a request is approved. Overcame this by building a robust request-approval state machine in PHP.",
+      future: "Implementing a real-time notification system and integrating Maps API for location-based searching."
+    }
+  },
+  {
+    id: 3,
     title: "AI Smart Classroom Face Recognition",
     subtitle: "Attendance System using ESP32-CAM",
     image: "/attendance_system_dashboard.png",
@@ -81,7 +122,7 @@ const projects = [
     }
   },
   {
-    id: 3,
+    id: 4,
     title: "FarmFresh – Organic Grocery Landing Page",
     subtitle: "Premium UI/UX Design",
     image: "/FarmFresh.png",
@@ -104,7 +145,7 @@ const projects = [
     }
   },
   {
-    id: 4,
+    id: 5,
     title: "Lovable Fur – Pet Care Landing Page UI",
     subtitle: "Pet Grooming & Care Interface",
     image: "/Lovable Fur.png",
@@ -124,29 +165,6 @@ const projects = [
       api: "N/A",
       challenges: "Creating a design that is playful and cute while maintaining high accessibility and clear visual hierarchy for booking services.",
       future: "Building out the full booking portal prototype with micro-interactions."
-    }
-  },
-  {
-    id: 5,
-    title: "Avatar World — Cinematic Fantasy Landing Page",
-    subtitle: "Immersive Web Experience",
-    image: "/Avatar World.png",
-    shortDesc: "A futuristic and highly immersive UI concept for an interactive virtual universe, featuring glassmorphism and deep neon aesthetics.",
-    tags: ["Design", "Figma"],
-    tech: [
-      { name: "Figma", icon: SiFigma, color: "#F24E1E" },
-    ],
-    stats: [],
-    links: { live: "https://www.figma.com/community/file/1641529582076340438", github: "#" },
-    details: {
-      description: "An exploratory UI/UX design for a virtual metaverse platform called 'Avatar World'. The aesthetic leverages intense deep dark modes, glowing neon highlights, and complex glassmorphic layering to give users a highly futuristic, sci-fi feel.",
-      features: ["Immersive dark mode styling", "Glassmorphic overlay panels", "Complex 3D avatar preview layouts"],
-      workflow: "1. Concept Ideation\n2. Visual Design\n3. High-fidelity Mockups",
-      architecture: "Figma design system utilizing advanced blur layers, blend modes, and neon gradients.",
-      database: "N/A",
-      api: "N/A",
-      challenges: "Balancing extreme visual flair and heavy graphical elements without compromising readability and core UI navigation.",
-      future: "Creating Framer Motion prototypes to simulate the 3D hover interactions."
     }
   }
 ];
