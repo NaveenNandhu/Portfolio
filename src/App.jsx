@@ -103,7 +103,7 @@ export default function App() {
 
       {/* 1. BACKGROUND ENVIRONMENT */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="noise-overlay opacity-[0.03]"></div>
+        <div className="hidden md:block noise-overlay opacity-[0.03]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_100%)]"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
       </div>
@@ -145,7 +145,7 @@ export default function App() {
       <section id="home" className="relative min-h-[100vh] md:h-[100vh] overflow-hidden flex flex-col items-center pt-28 lg:pt-40 z-10 px-6 pb-24 md:pb-0">
 
         {/* Twinkling Background Stars */}
-        <div className="absolute inset-0 pointer-events-none -z-20">
+        <div className="hidden md:block absolute inset-0 pointer-events-none -z-20">
           {stars.map((star, i) => (
             <motion.div
               key={`star-${i}`}
@@ -204,7 +204,7 @@ export default function App() {
 
           {/* --- ROTATING RINGS WRAPPERS (Prevents eccentric wobbling) --- */}
           {/* Background Shapes */}
-          <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none -z-10">
+          <div className="hidden md:flex absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center pointer-events-none -z-10">
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
@@ -215,7 +215,7 @@ export default function App() {
 
 
           {/* Flying Particles */}
-          <div className="absolute top-1/2 left-1/2 pointer-events-none -z-10">
+          <div className="hidden md:block absolute top-1/2 left-1/2 pointer-events-none -z-10">
             {particles.map((p, i) => (
               <motion.div
                 key={i}
@@ -239,7 +239,7 @@ export default function App() {
           </div>
 
           {/* Subtle Atmospheric Smoke */}
-          <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[120%] h-[300px] pointer-events-none -z-10 opacity-60 mix-blend-screen">
+          <div className="hidden md:block absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[120%] h-[300px] pointer-events-none -z-10 opacity-60 mix-blend-screen">
             {[...Array(1)].map((_, i) => (
               <motion.div
                 key={`smoke-${i}`}
@@ -323,15 +323,24 @@ export default function App() {
             ref={imageRef}
             className="relative h-full flex justify-center items-end"
           >
-            {/* Breathing Animation Wrapper */}
+            {/* Mobile Static Image (Zero Lag) */}
+            <div className="relative h-[110%] flex md:hidden justify-center items-end">
+              <img
+                src="/developer-nobg.png"
+                alt="Cinematic Character Portrait"
+                className="relative z-20 w-full h-full object-contain object-bottom pointer-events-auto"
+              />
+            </div>
+
+            {/* Desktop Breathing Animation Wrapper */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative h-[110%] flex justify-center items-end"
+              className="relative h-[110%] hidden md:flex justify-center items-end"
             >
               {/* CSS Drop Shadow Glow Mask */}
               <div
-                className="absolute bottom-0 pointer-events-none"
+                className="hidden md:block absolute bottom-0 pointer-events-none"
                 style={{
                   filter: `drop-shadow(0 0 ${20 + glowIntensity * 30}px rgba(220,38,38,${0.4 + glowIntensity * 0.6})) 
                               drop-shadow(0 0 ${40 + glowIntensity * 50}px rgba(255,0,0,${glowIntensity}))`,
@@ -348,7 +357,7 @@ export default function App() {
 
               {/* Inner edge rim light layer */}
               <div
-                className="absolute bottom-0 pointer-events-none"
+                className="hidden md:block absolute bottom-0 pointer-events-none"
                 style={{ filter: `drop-shadow(0 0 5px rgba(255,100,100,${0.5 + glowIntensity}))` }}
               >
                 <img
@@ -369,7 +378,7 @@ export default function App() {
               />
 
               {/* Floating Aura Particles */}
-              <div className="absolute inset-0 pointer-events-none z-30" style={{ opacity: glowIntensity }}>
+              <div className="hidden md:block absolute inset-0 pointer-events-none z-30" style={{ opacity: glowIntensity }}>
                 {[...Array(8)].map((_, i) => (
                   <motion.div
                     key={i}
@@ -500,7 +509,7 @@ export default function App() {
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
               transition={{ duration: 30, ease: "linear", repeat: Infinity }}
-              className="flex gap-6 md:gap-8 px-3 md:px-4 group-hover:[animation-play-state:paused]"
+              className="flex gap-6 md:gap-8 px-3 md:px-4 group-hover:[animation-play-state:paused] will-change-transform"
             >
               {/* Duplicate the array twice to ensure seamless scrolling of -50% */}
               {[...Array(2)].map((_, index) => (
@@ -522,7 +531,7 @@ export default function App() {
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
               transition={{ duration: 35, ease: "linear", repeat: Infinity }}
-              className="flex gap-6 md:gap-8 px-3 md:px-4 group-hover:[animation-play-state:paused]"
+              className="flex gap-6 md:gap-8 px-3 md:px-4 group-hover:[animation-play-state:paused] will-change-transform"
             >
               {[...Array(2)].map((_, index) => (
                 <React.Fragment key={index}>
