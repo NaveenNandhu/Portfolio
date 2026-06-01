@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX, FiExternalLink, FiGithub, FiArrowRight, FiUsers, FiCamera, FiActivity, FiDatabase, FiServer, FiLayers, FiCode, FiLayout, FiMaximize2, FiPlay, FiChevronRight } from 'react-icons/fi';
-import { SiCplusplus, SiArduino, SiPython, SiTensorflow, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiTailwindcss, SiMysql, SiPhp, SiBootstrap, SiJavascript, SiFigma, SiHtml5 } from 'react-icons/si';
+import { SiCplusplus, SiArduino, SiPython, SiTensorflow, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiTailwindcss, SiMysql, SiPhp, SiBootstrap, SiJavascript, SiFigma, SiHtml5, SiVercel } from 'react-icons/si';
 import { FaCss3Alt } from 'react-icons/fa';
 
 const projects = [
@@ -53,10 +53,10 @@ const projects = [
     tags: ["Completed", "Full-Stack Web"],
     tech: [
       { name: "PHP", icon: SiPhp, color: "#777BB4" },
-      { name: "MySQL", icon: SiMysql, color: "#4479A1" },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-      { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" }
+      { name: "TiDB / MySQL", icon: SiMysql, color: "#4479A1" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+      { name: "Vercel", icon: SiVercel, color: "#FFFFFF" },
+      { name: "HTML5", icon: SiHtml5, color: "#E34F26" }
     ],
     stats: [
       { label: "User Roles", value: "3", icon: FiUsers },
