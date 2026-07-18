@@ -312,7 +312,7 @@ export default function App() {
             <a href="https://github.com/NaveenNandhu" target="_blank" rel="noreferrer" className="p-2 bg-white/5 rounded-full text-gray-400">
               <FiGithub className="w-4 h-4" />
             </a>
-            <a href="https://www.linkedin.com/in/naveen-nandha-kumar-930975322/" target="_blank" rel="noreferrer" className="p-2 bg-white/5 rounded-full text-gray-400">
+            <a href="https://www.linkedin.com/in/nandha-kumar-930975322/" target="_blank" rel="noreferrer" className="p-2 bg-white/5 rounded-full text-gray-400">
               <FiLinkedin className="w-4 h-4" />
             </a>
             <a href="https://x.com/Nandhu_verse" target="_blank" rel="noreferrer" className="p-2 bg-white/5 rounded-full text-gray-400">
