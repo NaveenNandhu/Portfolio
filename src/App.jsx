@@ -293,7 +293,7 @@ export default function App() {
             <a href="https://github.com/NaveenNandhu" target="_blank" rel="noreferrer" className="p-2 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#333] transition-all duration-300">
               <FiGithub className="w-5 h-5" />
             </a>
-            <a href="https://www.linkedin.com/in/naveen-nandha-kumar-930975322/" target="_blank" rel="noreferrer" className="p-2 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#0077b5] transition-all duration-300">
+            <a href="https://www.linkedin.com/in/nandha-kumar-930975322" target="_blank" rel="noreferrer" className="p-2 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#0077b5] transition-all duration-300">
               <FiLinkedin className="w-5 h-5" />
             </a>
             <a href="https://x.com/Nandhu_verse" target="_blank" rel="noreferrer" className="p-2 bg-white/5 rounded-full text-gray-400 hover:bg-white hover:text-black transition-all duration-300">
